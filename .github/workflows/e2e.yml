@@ -20,13 +20,14 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       -
         name: Build image
-        uses: docker/bake-action@v2
+        uses: docker/bake-action@v6
         with:
+          source: .
           targets: image-local
       -
         name: Start distribution server
@@ -42,7 +43,7 @@ jobs:
     steps:
       -
         name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       -
